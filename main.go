@@ -51,17 +51,17 @@ func main() {
 			continue
 		}
 
-		rev, ok := jsonData["n"].(int)
+		rev, ok := jsonData["n"].(float64)
 		if !ok {
 			log.Printf("Message does not contain rev")
 			continue
 		}
 
-		ok = cache.CheckAndUpdate(device, rev)
+		ok = cache.CheckAndUpdate(device, int(rev))
 		if ok {
-			log.Printf("new message from %s at %d", device, rev)
+			log.Printf("new message from %s at %d", device, int(rev))
 		} else {
-			log.Printf("duplicate message from %s at %d", device, rev)
+			log.Printf("duplicate message from %s at %d", device, int(rev))
 		}
 	}
 }
