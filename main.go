@@ -50,6 +50,11 @@ func main() {
 			break
 		}
 
+		if len(line) == 1 && line[0] == '\n' {
+			// silently continue on blank newline
+			continue
+		}
+
 		var jsonData map[string]interface{}
 		err = json.Unmarshal(line, &jsonData)
 		if err != nil {
