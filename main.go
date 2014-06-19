@@ -53,7 +53,7 @@ func main() {
 		var jsonData map[string]interface{}
 		err = json.Unmarshal(line, &jsonData)
 		if err != nil {
-			log.Printf("Error parsing JSON object: %v", err)
+			log.Printf("Error parsing JSON object: %v source: `%s`", err, line)
 			continue
 		}
 
